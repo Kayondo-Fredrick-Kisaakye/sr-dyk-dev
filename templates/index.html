@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Home | Portfolio{% endblock %}
+
+{% block content %}
+<section id="home" class="hero">
+  <p class="eyebrow">Hello, I'm</p>
+  <h1>Fredrick Kayondo</h1>
+  <p class="subtitle">Frontend Developer & Python Learner</p>
+  <a class="btn" href="{{ url_for('contact') }}">Let's Connect</a>
+</section>
+
+<section id="about" class="section">
+  <h2>About</h2>
+  <p>
+    I build clean, responsive, and practical web experiences. This starter portfolio is
+    ready for you to customize with your own projects and story.
+  </p>
+</section>
+
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="project-grid">
+    <article class="card">
+      <h3>Campus Event Hub</h3>
+      <p>Platform for students to discover events and register online.</p>
+    </article>
+    <article class="card">
+      <h3>TaskFlow</h3>
+      <p>Simple productivity app for team task tracking.</p>
+    </article>
+    <article class="card">
+      <h3>Local Market Finder</h3>
+      <p>Directory to help users find nearby shops and services.</p>
+    </article>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Contact | Portfolio{% endblock %}
+
+{% block content %}
+<section class="section contact-section">
+  <h1>Contact Me</h1>
+  <p>Use the form below to send a message.</p>
+
+  <form id="contact-form" method="POST" action="{{ url_for('contact') }}" novalidate>
+    <label for="name">Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      minlength="2"
+      value="{{ form_data.get('name', '') }}"
+    />
+
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      value="{{ form_data.get('email', '') }}"
+    />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="6" required minlength="10">{{ form_data.get('message', '') }}</textarea>
+
+    <button class="btn" type="submit">Send Message</button>
+    <p class="form-note" id="form-note" aria-live="polite"></p>
+  </form>
+</section>
+{% endblock %}
