@@ -1,5 +1,4 @@
 import os
-import re
 from pathlib import Path
 
 import psycopg2
@@ -49,7 +48,8 @@ def create_app() -> Flask:
             errors = []
             if len(name) < 2:
                 errors.append("Name must be at least 2 characters long.")
-            if not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
+            local, _, domain = email.partition("@")
+            if not local or not domain or "." not in domain or domain.startswith(".") or domain.endswith("."):
                 errors.append("Please provide a valid email address.")
             if len(message) < 10:
                 errors.append("Message must be at least 10 characters long.")
@@ -89,4 +89,4 @@ app = create_app()
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
